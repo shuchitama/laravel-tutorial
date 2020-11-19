@@ -13,9 +13,9 @@ class UserController extends Controller
         $data = [
             'name' => 'Elon',
             'email' => 'elon@live.com',
-            'password' => bcrypt('password')
+            'password' => 'password'
         ];
-        // User::create($data);
+        User::create($data);
         // $user = new User();
         // $user->name = 'shuchita';
         // $user->email = 'shuchita@live.com';

@@ -15,7 +15,7 @@ class UserController extends Controller
             'email' => 'elon@live.com',
             'password' => 'password'
         ];
-        User::create($data);
+        // User::create($data);
         // $user = new User();
         // $user->name = 'shuchita';
         // $user->email = 'shuchita@live.com';

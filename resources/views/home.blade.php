@@ -16,6 +16,13 @@
 
           {{ __('You are logged in!') }}
         </div>
+
+        <div class="card-body">
+          <form action="/upload" method="post">
+            <input type="file" name="image" />
+            <input type="submit" name="Upload" />
+          </form>
+        </div>
       </div>
     </div>
   </div>

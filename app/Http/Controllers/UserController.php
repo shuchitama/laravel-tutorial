@@ -10,15 +10,17 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = new User();
-        $user->name = 'shuchita';
-        $user->email = 'shuchita@live.com';
-        $user->password = bcrypt('shuchita');
-        $user->save();
-        dd($user);
+        // $user = new User();
+        // $user->name = 'shuchita';
+        // $user->email = 'shuchita@live.com';
+        // $user->password = bcrypt('shuchita');
+        // $user->save();
+        // dd($user);
 
-        // $user = User::all();
-        // return $user;
+        User::where('id', 3)->update(['name' => 'Amita']);
+
+        $user = User::all();
+        return $user;
 
         // User::where('id', 2)->delete();
 

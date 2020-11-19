@@ -9,7 +9,13 @@ use App\User;
 class UserController extends Controller
 {
     public function index()
-    {
+    {   
+        $data = [
+            'name' => 'Elon',
+            'email' => 'elon@live.com',
+            'password' => bcrypt('password')
+        ];
+        // User::create($data);
         // $user = new User();
         // $user->name = 'shuchita';
         // $user->email = 'shuchita@live.com';
@@ -17,7 +23,7 @@ class UserController extends Controller
         // $user->save();
         // dd($user);
 
-        User::where('id', 3)->update(['name' => 'Amita']);
+        // User::where('id', 3)->update(['name' => 'Amita']);
 
         $user = User::all();
         return $user;

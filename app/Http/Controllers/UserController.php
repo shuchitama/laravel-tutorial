@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\User;
 
 class UserController extends Controller
 {
     public function index()
     {
+        $user = new User();
+        $user->name = 'shuchita';
+        $user->email = 'shuchita@live.com';
+        $user->password = 'shuchita';
+        $user->save();
+        dd($user);
         // DB::insert('insert into users (name, email, password) values (?, ?, ?)', ['Shuchita', 'shuchita@live.com', 'password']);
         // $users = DB::select('select * from users');
 

@@ -10,12 +10,19 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = new User();
-        $user->name = 'shuchita';
-        $user->email = 'shuchita@live.com';
-        $user->password = 'shuchita';
-        $user->save();
-        dd($user);
+        // $user = new User();
+        // $user->name = 'shuchita';
+        // $user->email = 'shuchita@live.com';
+        // $user->password = 'shuchita';
+        // $user->save();
+        // dd($user);
+
+        // $user = User::all();
+        // return $user;
+
+
+        User::where('id', 2)->delete();
+        // return $user;
         // DB::insert('insert into users (name, email, password) values (?, ?, ?)', ['Shuchita', 'shuchita@live.com', 'password']);
         // $users = DB::select('select * from users');
 

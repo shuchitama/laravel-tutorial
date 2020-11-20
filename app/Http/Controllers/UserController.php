@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 
 class UserController extends Controller
@@ -12,6 +13,9 @@ class UserController extends Controller
     {
         if($request->hasFile('image')) {
             $filename = $request->image->getClientOriginalName();
+            if(auth()->user()->avatar) {
+                Storage::delete('/public/images/'.auth()->user()->avatar);
+            };
             $request->image->storeAs('images', $filename, 'public');
             auth()->user()->update(['avatar' => $filename]);
         }

@@ -13,9 +13,9 @@ class UserController extends Controller
     {
         if($request->hasFile('image')) {
             User::uploadAvatar($request->image);
-            $request->session()->flash('message', 'Image Uploaded');
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Image Uploaded');
         }
+        return redirect()->back()->with('error', 'Image not uploaded');
     }
     protected function deleteOldImage() {
         if(auth()->user()->avatar) {

@@ -37,13 +37,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // public function setPasswordAttribute($password)
-    // {
-    //     $this->attributes['password'] = bcrypt($password);
-    // }
-
-    // public function getNameAttribute($name)
-    // {
-    //     return 'My name is: ' . ucfirst($name);
-    // }
+    public static function uploadAvatar($image)
+    {
+            $filename = $image->getClientOriginalName();
+            (new self())->deleteOldImage();
+            $image->storeAs('images', $filename, 'public');
+            auth()->user()->update(['avatar' => $filename]);
+        return redirect()->back();
+    }
+    protected function deleteOldImage() {
+        if($this->avatar) {
+            Storage::delete('/public/images/'. $this->avatar);
+        };
+    }
 }

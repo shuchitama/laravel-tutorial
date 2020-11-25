@@ -10,8 +10,14 @@ class TodoController extends Controller
     {
        return view('todos.index');
     }
+
     public function create()
     {
        return view('todos.create');
+    }
+    
+    public function edit()
+    {
+       return view('todos.edit');
     }
 }

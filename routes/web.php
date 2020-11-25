@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 Route::get('/todos', 'TodoController@index');
 Route::get('/todos/create', 'TodoController@create');
+Route::get('/todos/edit', 'TodoController@edit');
 
 Route::get('/', function () {
     return view('welcome');

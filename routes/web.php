@@ -3,11 +3,12 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/todos', 'TodoController@index');
 Route::get('/todos/create', 'TodoController@create');
 Route::post('/todos/create', 'TodoController@store');
-Route::get('/todos/edit', 'TodoController@edit');
+Route::get('/todos/{id}/edit', 'TodoController@edit');
 
 Route::get('/', function () {
     return view('welcome');

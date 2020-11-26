@@ -10,7 +10,8 @@ class TodoController extends Controller
 {
     public function index()
     {
-       return view('todos.index');
+       $todos = Todo::all();
+       return view('todos.index')->with(['todos' => $todos]);
     }
 
     public function create()
@@ -20,22 +21,6 @@ class TodoController extends Controller
 
     public function store(TodoCreateRequest $request)
     {
-   //    $rules = [
-   //          'title' => 'required|max:255',
-   //    ];
-   //    $messages = [
-   //       'title.max' => 'Todo title must be less than 255 characters'
-   //    ];
-   //    $validator = Validator::make($request->all(), $rules, $messages);
-   //    if ($validator->fails()) {
-   //       return redirect()->back()
-   //                   ->withErrors($validator)
-   //                   ->withInput();
-   //   }
-      //  $request->validate([
-      //    'title' => 'required|max:255',
-      //  ]);
-       
        Todo::create($request->all());
        return redirect()->back()->with('message', 'Todo Created Successfully');
     }

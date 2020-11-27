@@ -16,11 +16,18 @@
     @endif
     <div>
       <a href="{{ '/todos/'.$todo->id.'/edit' }}">
-        <span class="fas fa-edit text-yellow-400 cursor-pointer px-2" /></a>
+        <span class="fas fa-edit text-yellow-400 cursor-pointer px-2" />
+      </a>
       @if($todo->completed)
-      <span class="fas fa-check text-green-300 px-2" />
+      <span class="fas fa-check text-green-400 px-2" />
       @else
-      <span class="fas fa-check text-gray-300 cursor-pointer px-2" />
+      <span onclick="event.preventDefault(); document.getElementById('form-complete-{{ $todo->id }}').submit()"
+        class="fas fa-check text-gray-300 cursor-pointer px-2" />
+      <form style="display:none;" id="{{ 'form-complete-'.$todo->id }}" method="post"
+        action="{{route('todo.complete', $todo -> id)}}">
+        @csrf
+        @method('put')
+      </form>
       @endif
     </div>
   </li>

@@ -23,6 +23,14 @@
       <a href="{{ '/todos/'.$todo->id.'/edit' }}">
         <span class="fas fa-edit text-yellow-400 cursor-pointer px-2" />
       </a>
+
+      <span onclick="event.preventDefault(); document.getElementById('form-delete-{{ $todo->id }}').submit()"
+        class="fas fa-trash text-red-400 cursor-pointer px-2" />
+      <form style="display:none;" id="{{ 'form-delete-'.$todo->id }}" method="post"
+        action="{{route('todo.delete', $todo -> id)}}">
+        @csrf
+        @method('delete')
+      </form>
     </div>
 
   </li>

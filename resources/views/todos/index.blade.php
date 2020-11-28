@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="flex justify-center border-b pb-4">
-  <h1 class="text-2xl">All your Todos</h1>
-  <a href="todos/create" class="mx-5 py-1 px-1 bg-blue-400 cursor-pointer rounded text-white">Create new</a>
+  <h1 class="text-2xl px-10">All your Todos</h1>
+  <a href="todos/create" class="py-2 text-blue-400 cursor-pointer text-white">
+    <span class="fas fa-plus-circle" />
+  </a>
 </div>
 <ul class="my-5">
   <x-alert />

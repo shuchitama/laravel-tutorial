@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex justify-between px-4 border-b pb-4">
   <h1 class="text-2xl px-10">All your Todos</h1>
-  <a href="todos/create" class="py-2 text-blue-400 cursor-pointer text-white">
+  <a href="{{ route('todo.create') }}" class="py-2 text-blue-400 cursor-pointer text-white">
     <span class="fas fa-plus-circle" />
   </a>
 </div>
@@ -20,7 +20,7 @@
     @endif
 
     <div>
-      <a href="{{ '/todos/'.$todo->id.'/edit' }}">
+      <a href="{{ route('todo.edit', $todo->id) }}">
         <span class="fas fa-edit text-yellow-400 cursor-pointer px-2" />
       </a>
 
@@ -29,7 +29,7 @@
       document.getElementById('form-delete-{{ $todo->id }}').submit()}"
         class="fas fa-trash text-red-400 cursor-pointer px-2" />
       <form style="display:none;" id="{{ 'form-delete-'.$todo->id }}" method="post"
-        action="{{route('todo.delete', $todo -> id)}}">
+        action="{{route('todo.destroy', $todo -> id)}}">
         @csrf
         @method('delete')
       </form>

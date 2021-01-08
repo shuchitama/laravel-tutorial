@@ -12,9 +12,7 @@ This project follows [this tutorial](https://www.youtube.com/watch?v=BXiHvgrJfkg
 
 4. In the .env file, set the DB_DATABASE variable to "laravel_tutorial" (without quotation marks).
 
-5. Start the web server using the `php artisan serve` command. The app will be served at http://127.0.0.1:8000.
-
-6. Go to http://127.0.0.1:8000 in your browser.
+5. Start the web server using the `php artisan serve` command. You will be given a url where the app will be running. Go to the provided url to see the app in action.
 
 ## Screenshots
 
@@ -26,7 +24,7 @@ Adding new todos:
 !["Add new todos"](https://github.com/shuchitama/laravel-tutorial/blob/master/docs/new%20task.gif?raw=true)
 
 
-Complete and remove completed todos:
+Change the completion status of a todo:
 
 !["Complete Todos"](https://github.com/shuchitama/laravel-tutorial/blob/master/docs/complete.gif?raw=true)
 
